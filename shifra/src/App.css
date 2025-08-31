@@ -1,0 +1,116 @@
+:root {
+  /* Use CSS variables for consistent sizing */
+  --spacing-small: 10px;
+  --spacing-medium: 20px;
+  --button-width: 150px;
+  --button-height: 40px;
+  --font-size-button: 1.25rem;
+}
+
+.main {
+  width: 100%;
+  /* Use a minimum height to prevent content from getting too small on tiny screens */
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: var(--spacing-small);
+  gap: var(--spacing-small);
+}
+
+#shifra {
+  /* Use a percentage to scale the height relative to its container */
+  height: 70%;
+  max-width: 100%;
+}
+
+span {
+  background: linear-gradient(to right, blue, red);
+  background-clip: text;
+  -webkit-background-clip: text; /* For webkit browsers */
+  color: transparent;
+  /* Use vmax for font-size to scale with the larger of the viewport width or height */
+  font-size: 3vmax;
+  text-align: center;
+}
+
+button {
+  /* Use relative units or a fixed size that works well on most screens */
+  width: var(--button-width);
+  height: var(--button-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-medium);
+  font-size: var(--font-size-button);
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(80, 169, 248);
+  box-shadow: 2px 2px 10px blue, -2px -2px 10px red;
+  transition: box-shadow 0.3s ease; /* Add transition for a smoother hover effect */
+}
+
+button:hover {
+  box-shadow: 2px 2px 20px blue, -2px -2px 20px red;
+}
+
+#mic {
+  width: 100px; /* This can be kept as a fixed value if the icon size is not meant to change */
+  height: 100px; /* Add height for a perfect circle */
+  border-radius: 50%;
+  border: none;
+  background-color: transparent; /* Assuming this is an image or icon */
+}
+
+p {
+  /* Use relative font units like rem or em for accessibility */
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+  /* Use a percentage for padding to scale with the container */
+  padding: 0% 10%;
+  max-width: 800px; /* Add a max-width for better readability on large screens */
+}
+
+.response {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--spacing-small);
+  padding: var(--spacing-small);
+  width: 100%;
+}
+
+#aigif {
+  /* Use percentages for width to scale with the container */
+  width: 50%;
+  height: auto; /* Use auto for height to maintain aspect ratio */
+  max-width: 300px; /* Set a max-width to prevent it from getting too large */
+}
+
+/* Media Queries for smaller screens (e.g., mobile devices) */
+@media (max-width: 768px) {
+  span {
+    font-size: 5vmax; /* Increase font size on smaller screens for better visibility */
+  }
+
+  button {
+    width: 120px;
+    height: 35px;
+    font-size: 1rem;
+    gap: 10px;
+  }
+
+  p {
+    font-size: 1rem;
+    padding: 0 5%;
+  }
+
+  #aigif {
+    width: 80%; /* Make the GIF larger on smaller screens */
+    height: auto;
+  }
+}
